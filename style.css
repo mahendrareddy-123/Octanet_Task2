@@ -5,26 +5,27 @@
   box-sizing: border-box;
 }
 
-body{
-height: 100%;
-width: 100%;
-margin: 0;
-background-color:#5f434d;
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  background-color: #5f434d;
 }
 
 .bg {
-background-image:url(background.jpg);
-  height: 100%; 
+  background-image: url(background.jpg);
+  height: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-.logo{
-	padding-top: 60px;
-	max-width: 100%;
+.logo {
+  padding-top: 60px;
+  max-width: 100%;
 }
-.container{
+
+.container {
   max-width: 800px;
   margin: auto;
   padding: 10px;
@@ -32,10 +33,10 @@ background-image:url(background.jpg);
 
 h3 {
   margin: 10px 0;
-  color: skyblue; /* Added this line to change the color */
+  color: skyblue;
 }
 
-.txtb{
+.txtb {
   width: 100%;
   border: none;
   border-bottom: 2px solid #650f0f;
@@ -45,11 +46,7 @@ h3 {
   font-size: 18px;
 }
 
-h3{
-  margin: 10px 0;
-}
-
-.task{
+.task {
   width: 100%;
   background: rgba(193, 10, 10, 0.5);
   padding: 18px;
@@ -57,13 +54,13 @@ h3{
   overflow: hidden;
 }
 
-.task i{
+.task i {
   float: right;
   margin-left: 20px;
   cursor: pointer;
 }
 
-.comp .task{
+.comp .task {
   background: rgba(156, 153, 111, 0.5);
   color: #c12038;
 }
