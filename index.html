@@ -8,46 +8,56 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   </head>
-  <body><a href="#" class="logo"><img src="logo1.png" width="200" height="50" align ="left"></a>
-  <div class="bg">
-  
-    <div class="container">
-      <input type="text" class="txtb" placeholder="Add a task">
-      <div class="notcomp">
-        <h3>Not Completed</h3>
-      </div>
-
-      <div class="comp">
-        <h3>Completed</h3>
+  <body>
+    <a href="#" class="logo"><img src="logo1.png" width="200" height="50" align ="left"></a>
+    <div class="bg">
+      <div class="container">
+        <input type="text" class="txtb" placeholder="Add a task">
+        <div class="notcomp">
+          <h3>Not Completed</h3>
+        </div>
+        <div class="comp">
+          <h3>Completed</h3>
+        </div>
       </div>
     </div>
-</div>
 
     <script type="text/javascript">
-      $(".txtb").on("keyup",function(e){
-        if(e.keyCode == 13 && $(".txtb").val() != "")
-        {
-          var task = $("<div class='task'></div>").text($(".txtb").val());
-          var del = $("<i class='fas fa-trash-alt'></i>").click(function(){
+      $(".txtb").on("keyup", function(e) {
+        if (e.keyCode == 13 && $(".txtb").val() != "") {
+          var taskText = $(".txtb").val();
+          var task = $("<div class='task'></div>").text(taskText);
+
+          var del = $("<i class='fas fa-trash-alt'></i>").click(function() {
             var p = $(this).parent();
-            p.fadeOut(function(){
+            p.fadeOut(function() {
               p.remove();
             });
           });
 
-          var check = $("<i class='fas fa-check'></i>").click(function(){
+          var check = $("<i class='fas fa-check'></i>").click(function() {
             var p = $(this).parent();
-            p.fadeOut(function(){
+            p.fadeOut(function() {
               $(".comp").append(p);
               p.fadeIn();
             });
             $(this).remove();
           });
 
-          task.append(del,check);
+          var edit = $("<i class='fas fa-edit'></i>").click(function() {
+            var p = $(this).parent();
+            var text = p.text();
+            var newText = prompt("Edit the task:", text);
+            if (newText !== null && newText.trim() !== "") {
+              p.contents().filter(function() {
+                return this.nodeType === 3;
+              }).first().replaceWith(newText);
+            }
+          });
+
+          task.append(del, check, edit);
           $(".notcomp").append(task);
-            //to clear the input
-          $(".txtb").val("");
+          $(".txtb").val(""); // to clear the input
         }
       });
     </script>
